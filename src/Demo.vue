@@ -13,7 +13,7 @@
 
     <div class="example">
         <h3>v-model datepicker</h3>
-        <datepicker placeholder="Select Date" v-model="vModelExample"></datepicker>
+        <datepicker placeholder="Select Date" :disabled="disabledDate" v-model="vModelExample"></datepicker>
         <code>
             &lt;datepicker placeholder="Select Date" v-model="vmodelexample"&gt;&lt;/datepicker&gt;
         </code>
@@ -127,6 +127,15 @@ export default {
       language: 'en',
       languages: DateLanguages.translations,
       vModelExample: null
+    }
+  },
+  computed: {
+    disabledDate () {
+      let now = new Date()
+      return {
+        from: new Date(now.getFullYear() - 18, now.getMonth(), now.getDate()),
+        to: new Date(1970, 0, 1)
+      }
     }
   },
   methods: {

@@ -662,7 +662,8 @@ export default {
         return false
       }
       let d = new Date(this.pageDate)
-      if (Math.ceil(this.disabled.from.getFullYear() / 10) * 10 <= Math.ceil(d.getFullYear() / 10) * 10) {
+      
+      if (Math.ceil(this.disabled.from.getFullYear() / 10) * 10 <= Math.floor(d.getFullYear() / 10) * 10) {
         return true
       }
       return false
